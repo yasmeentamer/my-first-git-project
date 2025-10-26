@@ -1,9 +1,13 @@
-name: Hello Agile
-on: [push]
+name: Hello Agile - dev & PR
+on:
+  push:
+    branches: [ dev ]      # Only trigger when pushing to dev
+  pull_request:
+    branches: [ main ]     # Trigger when a PR targets main
 
 jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello
-        run: echo "Hello from GitHub Actions!"
+        run: echo "Hello from GitHub Actions (on dev or PR)!"
